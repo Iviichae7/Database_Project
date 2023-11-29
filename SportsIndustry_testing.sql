@@ -5,73 +5,80 @@ use sports_shop;
 
 create table datedimension (
     datekey int primary key,
-    day int,
-    month int,
-    year int,
-    quarter int,
-    week_number int
+    day tinyint not null,
+    month tinyint not null,
+    year smallint not null,
+    quarter tinyint not null,
+    week_number tinyint not null
 );
 
 create table itemdimension (
     itemkey int primary key,
-    itemname varchar(255),
-    category varchar(255),
-    brand varchar(255),
-    color varchar(50),
-    size varchar(50),
+    itemname varchar(100) not null,
+    category varchar(50),
+    brand varchar(50),
+    color varchar(20),
+    size varchar(15),
     sport_type varchar(50),
-    price decimal(10, 2),
-    supplierkey int
+    price decimal(10, 2) not null,
+    supplierkey int not null,
+    index (supplierkey)
 );
 
 create table podimension (
     pokey int primary key,
-    supplierid int,
-    orderdate date,
-    expected_delivery_date date,
-    received_date date,
+    supplierid int not null,
+    orderdate datetime not null,
+    expected_delivery_date datetime,
+    received_date datetime,
     backorder_flag varchar(10),
-    purchase_order_status varchar(50),
-    quantity int,
-    itemkey int,
-    totalcost decimal(10, 2)
+    purchase_order_status varchar(50) not null,
+    quantity int not null,
+    itemkey int not null,
+    totalcost decimal(10, 2) not null,
+    index (supplierid),
+    index (itemkey)
 );
 
 create table supplierdimension (
     supplierkey int primary key,
-    suppliername varchar(255),
-    location varchar(255),
-    contact varchar(255),
+    suppliername varchar(100) not null,
+    location varchar(100) not null,
+    contact varchar(100),
     contract_start_date date,
     contract_end_date date
 );
 
 create table customerdimension (
     customerkey int primary key,
-    customername varchar(255),
-    location varchar(255),
-    customer_since date,
+    customername varchar(100) not null,
+    location varchar(100) not null,
+    customer_since date not null,
     preferred_payment_method varchar(50)
 );
 
 -- Fact table
 create table factsalesorders (
     orderid int primary key,
-    datekey int,
-    itemkey int,
-    pokey int,
-    customerkey int,
-    quantitysold int,
-    discount_amount decimal(10, 2),
-    shipping_cost decimal(10, 2),
-    profit decimal(10, 2),
-    totalsales decimal(10, 2),
-    sales_channel varchar(50),
-    order_status varchar(50),
+    datekey int not null,
+    itemkey int not null,
+    pokey int not null,
+    customerkey int not null,
+    quantitysold int not null,
+    discount_amount decimal(10, 2) default 0.00,
+    shipping_cost decimal(10, 2) default 0.00,
+    profit decimal(10, 2) not null,
+    totalsales decimal(10, 2) not null,
+    sales_channel varchar(50) not null,
+    order_status varchar(50) default 'Pending',
     foreign key (datekey) references datedimension(datekey),
     foreign key (itemkey) references itemdimension(itemkey),
     foreign key (pokey) references podimension(pokey),
-    foreign key (customerkey) references customerdimension(customerkey)
+    foreign key (customerkey) references customerdimension(customerkey),
+    index (datekey),
+    index (itemkey),
+    index (pokey),
+    index (customerkey)
 );
 
 -- Inserting values into datedimension table
@@ -511,29 +518,29 @@ VALUES
     (98, 48, 98, 98, 48, 20, 25.00, 12.50, 37.50, 250.00, 'In-store', 'Shipped'),
     (99, 49, 99, 99, 49, 12, 18.00, 9.00, 27.00, 180.00, 'Online', 'Processing'),
     (100, 50, 100, 100, 50, 18, 22.00, 11.00, 33.00, 350.00, 'Online', 'Completed');
-    
-    create database sports_shop_data_mart;
-	use sports_shop_data_mart;
-		
-	CREATE TABLE Sales_Performance_and_Analysis AS SELECT i.itemname,
-		i.category,
-		s.sales_channel,
-		COUNT(DISTINCT s.customerkey) AS unique_customers,
-		SUM(s.quantitysold) AS total_units_sold,
-		SUM(s.profit) AS total_profit,
-		AVG(s.discount_amount) AS average_discount,
-		AVG(s.shipping_cost) AS average_shipping_cost,
-		SUM(s.totalsales) AS total_sales FROM
-		sports_shop.factsalesorders s
-        JOIN
-		sports_shop.itemdimension i ON s.itemkey = i.itemkey
-	GROUP BY i.itemname , i.category , s.sales_channel
-	ORDER BY total_profit DESC;
-    
-    create index idx_fact_datekey on factsalesorders(datekey);
-    
-	create index idx_fact_itemkey on factsalesorders(itemkey);
 
-select * from Sales_Performance_and_Customer_Engagement_Analysis;
+create database sports_shop_data_mart;
+use sports_shop_data_mart;
 
+create table sales_performance_and_analysis as 
+select 
+    i.itemname,
+    i.category,
+    s.sales_channel,
+    count(distinct s.customerkey) as unique_customers,
+    sum(s.quantitysold) as total_units_sold,
+    sum(s.profit) as total_profit,
+    sum(s.totalsales) as total_sales 
+from sports_shop.factsalesorders s
+    join sports_shop.itemdimension i on s.itemkey = i.itemkey
+group by 
+    i.itemname, i.category, s.sales_channel
+order by 
+    total_profit desc;
 
+select * from sales_performance_and_analysis;
+
+create index idx_itemdimension_itemname on sports_shop.itemdimension (itemname);
+create index idx_itemdimension_category on sports_shop.itemdimension (category);
+create index idx_itemdimension_itemname_category on sports_shop.itemdimension (itemname, category);
+create index idx_factsalesorders_sales_channel on sports_shop.factsalesorders (sales_channel);
