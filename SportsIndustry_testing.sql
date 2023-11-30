@@ -522,6 +522,8 @@ VALUES
 create database sports_shop_data_mart;
 use sports_shop_data_mart;
 
+-- @Michal Babik -- 
+-- To find out the most sold product and the total profit for each product.
 create table sales_performance_and_analysis as 
 select 
     i.itemname,
@@ -540,12 +542,13 @@ order by
 
 select * from sales_performance_and_analysis;
 
+-- To improve data retrival from the query if the data is large to filter from
 create index idx_itemdimension_itemname on sports_shop.itemdimension (itemname);
 create index idx_itemdimension_category on sports_shop.itemdimension (category);
 create index idx_itemdimension_itemname_category on sports_shop.itemdimension (itemname, category);
 create index idx_factsalesorders_sales_channel on sports_shop.factsalesorders (sales_channel);
 
-
+-- End of @Michal Babik -- 
 
 -- Data mart Schema ----- MD MAHMUDUL HASAN ------ 
 -- This qeury stores and displays data of Online sales performance of stores accross Ireland on monthly basis.
