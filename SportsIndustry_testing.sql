@@ -544,3 +544,36 @@ create index idx_itemdimension_itemname on sports_shop.itemdimension (itemname);
 create index idx_itemdimension_category on sports_shop.itemdimension (category);
 create index idx_itemdimension_itemname_category on sports_shop.itemdimension (itemname, category);
 create index idx_factsalesorders_sales_channel on sports_shop.factsalesorders (sales_channel);
+
+
+
+-- Data mart Schema ----- MD MAHMUDUL HASAN ------ 
+-- This qeury stores and displays data of Online sales performance of stores accross Ireland on monthly basis.
+
+use sports_shop_data_mart;
+CREATE TABLE monthly_online_sales_report AS SELECT location AS Store_Location,
+    sales_channel AS Sales_Method,
+    year,
+    month,
+    SUM(totalsales) AS Total_Sales FROM
+    sports_shop.factsalesorders
+        INNER JOIN
+    sports_shop.customerdimension ON factsalesorders.customerkey = customerdimension.customerkey
+        LEFT JOIN
+    sports_shop.datedimension ON datedimension.datekey = factsalesorders.datekey
+WHERE
+    year = 2023 AND sales_channel = 'online'
+GROUP BY location , sales_channel , month , year
+ORDER BY total_sales DESC;
+
+-- creating Index for optimization
+CREATE INDEX idx_year
+ON sports_shop.datedimension (year);
+
+CREATE INDEX idx_sales_channel
+ON sports_shop.factsalesorders (sales_channel);
+
+SELECT * FROM monthly_online_sales_report;
+-- ------- End of MD MAHMUDUL HASAN'S PART ------------
+
+
