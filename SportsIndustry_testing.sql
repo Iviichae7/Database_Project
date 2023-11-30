@@ -434,7 +434,7 @@ VALUES
     (14, 14, 14, 14, 14, 16, 21.00, 10.50, 31.50, 320.00, 'Online', 'Completed'),
     (15, 15, 15, 15, 15, 21, 26.00, 13.00, 39.00, 270.00, 'In-store', 'Shipped'),
     (16, 16, 16, 16, 16, 13, 19.00, 9.50, 28.50, 190.00, 'Online', 'Processing'),
-    (17, 17, 17, 17, 17, 19, 23.00, 11.50, 34.50, 370.00, 'Online', 'Completed'),
+    (17, 17, 17, 17, 17, 9, 23.00, 11.50, 34.50, 370.00, 'Online', 'Completed'),
     (18, 18, 18, 18, 18, 26, 31.00, 15.50, 46.50, 420.00, 'In-store', 'Shipped'),
     (19, 19, 19, 19, 19, 8, 9.00, 4.50, 13.50, 130.00, 'Online', 'Processing'),
     (20, 20, 20, 20, 20, 31, 36.00, 18.00, 54.00, 290.00, 'In-store', 'Completed'),
@@ -443,20 +443,20 @@ VALUES
     (23, 23, 23, 23, 23, 14, 14.00, 7.00, 21.00, 175.00, 'Online', 'Processing'),
     (24, 24, 24, 24, 24, 15, 19.00, 9.50, 28.50, 315.00, 'Online', 'Completed'),
     (25, 25, 25, 25, 25, 16, 24.00, 12.00, 36.00, 265.00, 'In-store', 'Shipped'),
-    (26, 26, 26, 26, 26, 17, 18.00, 9.00, 27.00, 195.00, 'Online', 'Processing'),
-    (27, 27, 27, 27, 27, 18, 23.00, 11.50, 34.50, 375.00, 'Online', 'Completed'),
+    (26, 26, 26, 26, 26, 9, 18.00, 9.00, 27.00, 195.00, 'Online', 'Processing'),
+    (27, 27, 27, 27, 27, 5, 23.00, 11.50, 34.50, 375.00, 'Online', 'Completed'),
     (28, 28, 28, 28, 28, 19, 28.00, 14.00, 42.00, 425.00, 'In-store', 'Shipped'),
     (29, 29, 29, 29, 29, 20, 29.00, 14.50, 43.50, 135.00, 'Online', 'Processing'),
     (30, 30, 30, 30, 30, 21, 30.00, 15.00, 45.00, 290.00, 'In-store', 'Completed'),
-    (31, 31, 31, 31, 31, 22, 31.00, 15.50, 46.50, 125.00, 'Online', 'Completed'),
+    (31, 31, 31, 31, 31, 19, 31.00, 15.50, 46.50, 125.00, 'Online', 'Completed'),
     (32, 32, 32, 32, 32, 23, 32.00, 16.00, 48.00, 240.00, 'In-store', 'Shipped'),
     (33, 33, 33, 33, 33, 24, 33.00, 16.50, 49.50, 185.00, 'Online', 'Processing'),
     (34, 34, 34, 34, 34, 25, 34.00, 17.00, 51.00, 315.00, 'Online', 'Completed'),
-    (35, 35, 35, 35, 35, 26, 35.00, 17.50, 52.50, 265.00, 'In-store', 'Shipped'),
+    (35, 35, 35, 35, 35, 25, 35.00, 17.50, 52.50, 265.00, 'In-store', 'Shipped'),
     (36, 36, 36, 36, 36, 27, 36.00, 18.00, 54.00, 195.00, 'Online', 'Processing'),
     (37, 37, 37, 37, 37, 28, 37.00, 18.50, 55.50, 375.00, 'Online', 'Completed'),
     (38, 38, 38, 38, 38, 29, 38.00, 19.00, 57.00, 425.00, 'In-store', 'Shipped'),
-    (39, 39, 39, 39, 39, 30, 39.00, 19.50, 58.50, 135.00, 'Online', 'Processing'),
+    (39, 39, 39, 39, 39, 19, 39.00, 19.50, 58.50, 135.00, 'Online', 'Processing'),
     (40, 40, 40, 40, 40, 31, 40.00, 20.00, 60.00, 290.00, 'In-store', 'Completed'),
     (41, 41, 41, 41, 41, 5, 9.00, 4.50, 13.50, 110.00, 'Online', 'Completed'),
     (42, 42, 42, 42, 42, 10, 14.00, 7.00, 21.00, 220.00, 'In-store', 'Shipped'),
@@ -464,7 +464,7 @@ VALUES
     (44, 44, 44, 44, 44, 15, 19.00, 9.50, 28.50, 320.00, 'Online', 'Completed'),
     (45, 45, 45, 45, 45, 20, 25.00, 12.50, 37.50, 250.00, 'In-store', 'Shipped'),
     (46, 46, 46, 46, 46, 12, 18.00, 9.00, 27.00, 180.00, 'Online', 'Processing'),
-    (47, 47, 47, 47, 47, 18, 22.00, 11.00, 33.00, 350.00, 'Online', 'Completed'),
+    (47, 47, 47, 47, 47, 14, 22.00, 11.00, 33.00, 350.00, 'Online', 'Completed'),
     (48, 48, 48, 48, 48, 25, 30.00, 15.00, 45.00, 400.00, 'In-store', 'Shipped'),
     (49, 49, 49, 49, 49, 7, 8.00, 4.00, 12.00, 120.00, 'Online', 'Processing'),
     (50, 50, 50, 50, 50, 30, 35.00, 17.50, 52.50, 280.00, 'In-store', 'Completed'),
@@ -502,7 +502,7 @@ VALUES
     (82, 32, 82, 82, 32, 10, 14.00, 7.00, 21.00, 220.00, 'In-store', 'Shipped'),
     (83, 33, 83, 83, 33, 8, 11.00, 5.50, 16.50, 165.00, 'Online', 'Processing'),
     (84, 34, 84, 84, 34, 15, 19.00, 9.50, 28.50, 320.00, 'Online', 'Completed'),
-    (85, 35, 85, 85, 35, 20, 25.00, 12.50, 37.50, 250.00, 'In-store', 'Shipped'),
+    (85, 35, 85, 85, 35, 13, 25.00, 12.50, 37.50, 250.00, 'In-store', 'Shipped'),
     (86, 36, 86, 86, 36, 12, 18.00, 9.00, 27.00, 180.00, 'Online', 'Processing'),
     (87, 37, 87, 87, 37, 18, 22.00, 11.00, 33.00, 350.00, 'Online', 'Completed'),
     (88, 38, 88, 88, 38, 25, 30.00, 15.00, 45.00, 400.00, 'In-store', 'Shipped'),
@@ -517,7 +517,7 @@ VALUES
     (97, 47, 97, 97, 47, 18, 22.00, 11.00, 33.00, 350.00, 'Online', 'Completed'),
     (98, 48, 98, 98, 48, 20, 25.00, 12.50, 37.50, 250.00, 'In-store', 'Shipped'),
     (99, 49, 99, 99, 49, 12, 18.00, 9.00, 27.00, 180.00, 'Online', 'Processing'),
-    (100, 50, 100, 100, 50, 18, 22.00, 11.00, 33.00, 350.00, 'Online', 'Completed');
+    (100, 50, 100, 100, 50, 15, 22.00, 11.00, 33.00, 350.00, 'Online', 'Completed');
 
 create database sports_shop_data_mart;
 use sports_shop_data_mart;
@@ -575,5 +575,30 @@ ON sports_shop.factsalesorders (sales_channel);
 
 SELECT * FROM monthly_online_sales_report;
 -- ------- End of MD MAHMUDUL HASAN'S PART ------------
+
+
+-- ----- Data mart Schema ----- NICHOLAS ALVES --------
+-- The goal of this query is to identify the sales performance of each item ordered from suppliers
+
+use sports_shop_data_mart;
+create table inventory_performance as 
+SELECT id.itemkey, id.itemname, id.category, id.brand, id.color, id.size,
+       SUM(fs.quantitysold) AS total_sold,
+       SUM(pd.quantity) AS total_ordered,
+       (SUM(pd.quantity) - SUM(fs.quantitysold)) AS remaining_inventory
+FROM sports_shop.itemdimension id
+LEFT JOIN sports_shop.factsalesorders fs ON id.itemkey = fs.itemkey
+LEFT JOIN sports_shop.podimension pd ON id.itemkey = pd.itemkey
+GROUP BY id.itemkey, id.itemname, id.category, id.brand, id.color, id.size 
+ORDER BY remaining_inventory DESC;
+
+select * from inventory_performance;
+
+CREATE INDEX idx_itemkey ON sports_shop.itemdimension(itemkey);
+CREATE INDEX idx_quantity ON sports_shop.podimension(quantity);
+CREATE INDEX idx_quantity_sold ON sports_shop.factsalesorders(quantitysold);
+
+-- ------- End of NICHOLAS ALVES' PART ------------
+
 
 
